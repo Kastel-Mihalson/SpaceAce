@@ -409,7 +409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c097cbd1a68c9459633770e150b888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerData: {fileID: 11400000, guid: c7c83f7a0465f4d48a5070542c332c68, type: 2}
+  _playerShipData: {fileID: 11400000, guid: 0cd187b4bc5b2c445beceeaa11099586, type: 2}
+  _enemyShipData: {fileID: 11400000, guid: 95bf12c75e0617a4b87da5429fcb2f93, type: 2}
 --- !u!4 &1137707614
 Transform:
   m_ObjectHideFlags: 0

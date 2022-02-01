@@ -2,23 +2,25 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private PlayerSO _playerData;
+    [SerializeField] private ShipBaseData _playerShipData;
+    [SerializeField] private ShipBaseData _enemyShipData;
 
-    private PlayerController _playerController;
+    private IShipController _playerController;
+    private IShipController _enemyController;
 
     void Start()
     {
-        _playerController = new PlayerController(_playerData);
-        _playerController.Init();
+        _playerController = new PlayerShipEvoController();
+        _playerController.Init(_playerShipData);
     }
 
     void Update()
     {
-        _playerController.UpdateExecute();
+        _playerController.Control();
     }
 
     private void FixedUpdate()
     {
-        _playerController.FixedUpdateExecute();
+        _playerController.Flight();
     }
 }
