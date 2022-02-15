@@ -4,10 +4,6 @@ public interface IGunModel
 {
     GameObject Prefab { get; set; }
 
-    float Damage { get; set; }
-
-    float Speed { get; set; }
-
     float RateOfFire { get; set; }
 
     float TotalAmmo { get; set; }

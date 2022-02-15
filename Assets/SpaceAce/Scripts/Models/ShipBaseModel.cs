@@ -6,7 +6,7 @@ public abstract class ShipBaseModel
     private Rigidbody _rigidbody;
     private Transform _transform;
     private CapsuleCollider _collider;
-    private Vector3 _gunPosition;
+    private Transform _gunPosition;
 
     private GameObject _prefab;
     private Vector3 _spawn;
@@ -24,7 +24,7 @@ public abstract class ShipBaseModel
 
     public CapsuleCollider ShipCollider => _collider;
 
-    public Vector3 GunPosition => _gunPosition;
+    public Transform GunPosition => _gunPosition;
 
     public GameObject Prefab
     {
@@ -80,6 +80,6 @@ public abstract class ShipBaseModel
         _rigidbody = _shipGameObject.GetComponent<Rigidbody>();
         _collider = _shipGameObject.GetComponent<CapsuleCollider>();
         _transform = _rigidbody.transform;
-        _gunPosition = _rigidbody.gameObject.GetComponentInChildren<ShipGunMarker>().transform.position;
+        _gunPosition = _rigidbody.gameObject.GetComponentInChildren<ShipGunMarker>().transform;
     }
 }

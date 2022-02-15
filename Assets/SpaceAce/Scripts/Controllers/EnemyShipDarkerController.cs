@@ -14,7 +14,11 @@ public class EnemyShipDarkerController : IShipController
         _enemyShipView = _shipDarkerModel.ShipGameObject.GetComponent<EnemyShipView>();
     }
 
-    public void Control()
+    public void FlightControl()
+    {
+    }
+
+    public void ShootControl()
     {
     }
 
@@ -22,7 +26,7 @@ public class EnemyShipDarkerController : IShipController
     {
     }
 
-    public void Gun()
+    public void InitGun(IGunController gunController)
     {
     }
 }

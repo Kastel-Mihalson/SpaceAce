@@ -4,10 +4,6 @@ public abstract class GunBaseModel : IGunModel
 {
     public GameObject Prefab { get; set; }
 
-    public float Damage { get; set; }
-
-    public float Speed { get; set; }
-
     public float RateOfFire { get; set; }
 
     public float TotalAmmo { get; set; }
@@ -22,8 +18,6 @@ public abstract class GunBaseModel : IGunModel
     public GunBaseModel(GunBaseData gunBaseData)
     {
         Prefab = gunBaseData.Prefab;
-        Damage = gunBaseData.Damage;
-        Speed = gunBaseData.Speed;
         RateOfFire = gunBaseData.RateOfFire;
         TotalAmmo = gunBaseData.TotalAmmo;
         ClipCapacity = gunBaseData.ClipCapacity;

@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c694c041503bd414f841dd665446557e, type: 3}
   m_Name: BulletGunData
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
-  _damage: 10
-  _speed: 6
+  _prefab: {fileID: 5724166870291611381, guid: 704817b1c5f7c8740ac039f588659f41, type: 3}
   _rateOfFire: 0.2
   _totalAmmo: 50
   _clipCapacity: 10

@@ -1,7 +1,8 @@
 ﻿public interface IShipController
 {
     void Init(ShipBaseData shipBaseData);
-    void Control();
+    void FlightControl();
+    void ShootControl();
     void Flight();
-    void Gun();
+    void InitGun(IGunController gunController);
 }

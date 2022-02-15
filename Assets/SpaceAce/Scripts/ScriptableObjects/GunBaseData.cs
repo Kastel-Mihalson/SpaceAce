@@ -4,8 +4,6 @@
 public class GunBaseData : ScriptableObject
 {
     [SerializeField] private GameObject _prefab;
-    [SerializeField] private float _damage;
-    [SerializeField] private float _speed;
     [SerializeField] private float _rateOfFire;
     [SerializeField] private float _totalAmmo;
     [SerializeField] private float _clipCapacity;
@@ -16,18 +14,6 @@ public class GunBaseData : ScriptableObject
     {
         get => _prefab;
         set => _prefab = value;
-    }
-
-    public float Damage
-    {
-        get => _damage;
-        set => _damage = value;
-    }
-
-    public float Speed
-    {
-        get => _speed;
-        set => _speed = value;
     }
 
     public float RateOfFire
