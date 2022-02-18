@@ -12,7 +12,7 @@ public interface IShipModel
 
     CapsuleCollider ShipCollider { get; }
 
-    Vector3 GunPosition { get; }
+    Transform GunPosition { get; }
 
     Vector3 Spawn { get; set; }
 

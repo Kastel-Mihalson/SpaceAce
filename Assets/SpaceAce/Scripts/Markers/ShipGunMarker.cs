@@ -1,3 +1,4 @@
 using UnityEngine;
 
-public class ShipGunMarker : MonoBehaviour { }
+public class ShipGunMarker : MonoBehaviour
+{ }

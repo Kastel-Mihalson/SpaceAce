@@ -3,13 +3,21 @@ using UnityEngine;
 public class PlayerShipEvoController : IShipController
 {
     private IShipModel _shipEvoModel;
+    private IGunController _shipGun;
     private PlayerShipView _shipView;
     private Vector3 _movement;
+    private KeyCode _shootKeyCode = KeyCode.Space;
 
     private float _left;
     private float _right;
     private float _top;
     private float _bottom;
+
+    public IGunController ShipGun
+    {
+        get => _shipGun;
+        set => _shipGun = value;
+    }
 
     public PlayerShipEvoController() { }
 
@@ -21,7 +29,14 @@ public class PlayerShipEvoController : IShipController
         SetLimitFlightAreaByColliderSize();
     }
 
-    public void Control()
+    public void InitGun(IGunController gunController)
+    {
+        ShipGun = gunController;
+        ShipGun.GunPosition = _shipEvoModel.GunPosition;
+        ShipGun.Init();
+    }
+
+    public void FlightControl()
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
@@ -31,14 +46,18 @@ public class PlayerShipEvoController : IShipController
         LimitFlightArea();
     }
 
+    public void ShootControl()
+    {
+        if (Input.GetKeyDown(_shootKeyCode))
+        {
+            ShipGun.Shoot();
+        }
+    }
+
     public void Flight()
     {
         _shipEvoModel.ShipRigidBody.velocity = _movement * _shipEvoModel.Speed;
         _shipEvoModel.ShipRigidBody.rotation = Quaternion.Euler(0, 0, -_shipEvoModel.ShipRigidBody.velocity.x * _shipEvoModel.Turn);
-    }
-
-    public void Gun()
-    {
     }
 
     private void LimitFlightArea()
