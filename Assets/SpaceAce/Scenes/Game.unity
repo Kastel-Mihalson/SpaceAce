@@ -411,6 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerShipData: {fileID: 11400000, guid: 0cd187b4bc5b2c445beceeaa11099586, type: 2}
   _enemyShipData: {fileID: 11400000, guid: 95bf12c75e0617a4b87da5429fcb2f93, type: 2}
+  _audioData: {fileID: 11400000, guid: cb26577808266fa47a88b58128188dd5, type: 2}
 --- !u!4 &1137707614
 Transform:
   m_ObjectHideFlags: 0

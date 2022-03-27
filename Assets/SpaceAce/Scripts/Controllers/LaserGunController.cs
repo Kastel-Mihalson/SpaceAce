@@ -9,15 +9,23 @@ public class LaserGunController : IGunController
     private BulletBaseData _bulletBaseData;
     private Transform _bulletSpawnPosition;
     private Transform _gunPosition;
+    private GameObject _gunGo;
+    private AudioController _audioController;
 
     public Transform GunPosition
     {
         get => _gunPosition;
         set => _gunPosition = value;
     }
-
-    public LaserGunController()
+    public GameObject GunGameObject
     {
+        get => _gunGo;
+        set => _gunGo = value;
+    }
+
+    public LaserGunController(AudioController audioController)
+    {
+        _audioController = audioController;
         _gunBaseData = Resources.Load<GunBaseData>("Guns/LaserGunData");
         _bulletBaseData = Resources.Load<BulletBaseData>("Bullets/LaserData");
         _shootController = new ShootController();
@@ -26,11 +34,10 @@ public class LaserGunController : IGunController
     public void Init()
     {
         _gunModel = new LaserGunModel(_gunBaseData);
+        _gunGo = Object.Instantiate(_gunModel.Prefab, GunPosition);
 
-        GameObject gunGO = Object.Instantiate(_gunModel.Prefab, GunPosition);
-
-        _bulletSpawnPosition = gunGO.GetComponentInChildren<BulletSpawnMarker>().transform;
-        _gunView = gunGO.GetComponent<LaserGunView>();
+        _bulletSpawnPosition = _gunGo.GetComponentInChildren<BulletSpawnMarker>().transform;
+        _gunView = _gunGo.GetComponent<LaserGunView>();
     }
 
     public void Overheat()
@@ -47,6 +54,7 @@ public class LaserGunController : IGunController
     {
         _shootController.Init(_bulletBaseData, _bulletSpawnPosition);
         _shootController.Fire();
+        _audioController.Play(AudioClipName.LaserGunShot);
         Debug.Log("Пиу-пиу!");
     }
 }
