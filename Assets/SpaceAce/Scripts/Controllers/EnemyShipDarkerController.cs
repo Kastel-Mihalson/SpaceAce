@@ -26,7 +26,12 @@ public class EnemyShipDarkerController : IShipController
     {
     }
 
-    public void InitGun(IGunController gunController)
+    public void SetGun(IGunController gunController)
     {
+    }
+
+    public void UnsetGun()
+    {
+        throw new System.NotImplementedException();
     }
 }

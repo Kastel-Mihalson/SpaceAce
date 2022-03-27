@@ -4,5 +4,6 @@
     void FlightControl();
     void ShootControl();
     void Flight();
-    void InitGun(IGunController gunController);
+    void SetGun(IGunController gunController);
+    void UnsetGun();
 }

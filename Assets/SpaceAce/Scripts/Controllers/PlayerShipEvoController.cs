@@ -7,6 +7,7 @@ public class PlayerShipEvoController : IShipController
     private PlayerShipView _shipView;
     private Vector3 _movement;
     private KeyCode _shootKeyCode = KeyCode.Space;
+    private AudioController _audioController;
 
     private float _left;
     private float _right;
@@ -19,7 +20,9 @@ public class PlayerShipEvoController : IShipController
         set => _shipGun = value;
     }
 
-    public PlayerShipEvoController() { }
+    public PlayerShipEvoController()
+    {
+    }
 
     public void Init(ShipBaseData shipBaseData)
     {
@@ -29,11 +32,16 @@ public class PlayerShipEvoController : IShipController
         SetLimitFlightAreaByColliderSize();
     }
 
-    public void InitGun(IGunController gunController)
+    public void SetGun(IGunController gunController)
     {
         ShipGun = gunController;
         ShipGun.GunPosition = _shipEvoModel.GunPosition;
         ShipGun.Init();
+    }
+
+    public void UnsetGun()
+    {
+        Object.Destroy(ShipGun.GunGameObject);
     }
 
     public void FlightControl()
